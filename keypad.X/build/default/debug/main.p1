@@ -1,0 +1,40 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"26 main.c
+[; ;main.c: 26: int main(int argc, char** argv) {
+[v _main `(i ~T0 @X0 1 ef2`i`**uc ]
+{
+[e :U _main ]
+[v _argc `i ~T0 @X0 1 r1 ]
+[v _argv `**uc ~T0 @X0 1 r2 ]
+[f ]
+"28
+[; ;main.c: 28:     int i;
+[v _i `i ~T0 @X0 1 a ]
+"29
+[; ;main.c: 29:     for (i = 0; i < 255; i++){
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 255 `i 9  ]
+[e $U 10  ]
+[e :U 9 ]
+{
+"30
+[; ;main.c: 30:         if(i == 254)
+[e $ ! == _i -> 254 `i 12  ]
+"31
+[; ;main.c: 31:             i = 0;
+[e = _i -> 0 `i ]
+[e :U 12 ]
+"32
+[; ;main.c: 32:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 255 `i 9  ]
+[e :U 10 ]
+}
+"33
+[; ;main.c: 33: }
+[e :UE 8 ]
+}
