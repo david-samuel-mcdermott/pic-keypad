@@ -1,0 +1,14 @@
+keypad.X/nbproject/private/
+keypad.X/build/
+keypad.X/nbbuild/
+keypad.X/dist/
+keypad.X/nbdist/
+keypad.X/debug/
+keypad.X/nbactions.xml
+keypad.X/nb-configuration.xml
+keypad.X/.nb-gradle/
+*.swp
+*.hex
+*.err
+keypad.X/l.obj
+keypad.X/funclist
