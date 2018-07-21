@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V2.00 build -1524193055 
-                                                                                               Thu Jul 19 20:49:36 2018
+                                                                                               Fri Jul 20 22:16:59 2018
 
 Microchip Technology Omniscient Code Generator v2.00 (Free mode) build 20180527130849
      1  0000                     
@@ -158,307 +158,1184 @@ Microchip Technology Omniscient Code Generator v2.00 (Free mode) build 201805271
     90  0000                     popw	macro
     91                           	moviw --fsr1
     92                           	endm
-    93  0000                     	FNROOT	_main
-    94                           ; #config settings
-    95                           	file	"C:\Users\DAVIDM~1\AppData\Local\Temp\sidc."
-    96                           	line	#
-    97                           psect cinit,class=CODE,delta=2
-    98                           global start_initialization
-    99                           start_initialization:
-   100  07FE                     
-   101                           global __initialization
-   102                           __initialization:
-   103  07FE                     psect cinit,class=CODE,delta=2,merge=1
-   104                           global end_of_initialization,__end_of__initialization
-   105                           
-   106                           ;End of C runtime variable initialization code
-   107                           
-   108                           end_of_initialization:
-   109  07FE                     __end_of__initialization:
-   110  07FE                     movlb 0
-   111  07FE  0140               ljmp _main	;jump to C main() function
-   112  07FF  2FFD               psect	cstackCOMMON,class=COMMON,space=1,noexec
-   113                           global __pcstackCOMMON
-   114                           __pcstackCOMMON:
-   115  0070                     ?_main:	; 2 bytes @ 0x0
-   116  0070                     main@argc:	; 2 bytes @ 0x0
-   117  0070                     	ds	2
-   118  0070                     main@argv:	; 2 bytes @ 0x2
-   119  0072                     	ds	2
-   120  0072                     ??_main:	; 1 bytes @ 0x4
-   121  0074                     ;!
-   122                           ;!Data Sizes:
-   123                           ;!    Strings     0
-   124                           ;!    Constant    0
-   125                           ;!    Data        0
-   126                           ;!    BSS         0
-   127                           ;!    Persistent  0
-   128                           ;!    Stack       0
-   129                           ;!
-   130                           ;!Auto Spaces:
-   131                           ;!    Space          Size  Autos    Used
-   132                           ;!    COMMON           14      4       4
-   133                           ;!    BANK0            80      0       0
-   134                           ;!    BANK1            80      0       0
-   135                           ;!    BANK2            80      0       0
-   136                           
-   137                           ;!
-   138                           ;!Pointer List with Targets:
-   139                           ;!
-   140                           ;!    None.
-   141                           
-   142                           
-   143                           ;!
-   144                           ;!Critical Paths under _main in COMMON
-   145                           ;!
-   146                           ;!    None.
-   147                           ;!
-   148                           ;!Critical Paths under _main in BANK0
-   149                           ;!
-   150                           ;!    None.
-   151                           ;!
-   152                           ;!Critical Paths under _main in BANK1
-   153                           ;!
-   154                           ;!    None.
-   155                           ;!
-   156                           ;!Critical Paths under _main in BANK2
-   157                           ;!
-   158                           ;!    None.
-   159                           
-   160 ;;
-   161 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   162 ;;
-   163                           
-   164                           ;!
-   165                           ;!Call Graph Tables:
-   166                           ;!
-   167                           ;! ---------------------------------------------------------------------------------
-   168                           ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
-   169                           ;! ---------------------------------------------------------------------------------
-   170                           ;! (0) _main                                                 4     0      4       0
-   171                           ;!                                              0 COMMON     4     0      4
-   172                           ;! ---------------------------------------------------------------------------------
-   173                           ;! Estimated maximum stack depth 0
-   174                           ;! ---------------------------------------------------------------------------------
-   175                           ;!
-   176                           ;! Call Graph Graphs:
-   177                           ;!
-   178                           ;! _main (ROOT)
-   179                           ;!
-   180                           
-   181                           ;! Address spaces:
-   182                           
-   183                           ;!Name               Size   Autos  Total    Cost      Usage
-   184                           ;!BIGRAM              F0      0       0       0        0.0%
-   185                           ;!NULL                 0      0       0       0        0.0%
-   186                           ;!CODE                 0      0       0       0        0.0%
-   187                           ;!BITCOMMON            E      0       0       1        0.0%
-   188                           ;!BITSFR0              0      0       0       1        0.0%
-   189                           ;!SFR0                 0      0       0       1        0.0%
-   190                           ;!COMMON               E      4       4       2       28.6%
-   191                           ;!BITSFR1              0      0       0       2        0.0%
-   192                           ;!SFR1                 0      0       0       2        0.0%
-   193                           ;!BITSFR2              0      0       0       3        0.0%
-   194                           ;!SFR2                 0      0       0       3        0.0%
-   195                           ;!STACK                0      0       0       3        0.0%
-   196                           ;!BITBANK0            50      0       0       4        0.0%
-   197                           ;!BITSFR3              0      0       0       4        0.0%
-   198                           ;!SFR3                 0      0       0       4        0.0%
-   199                           ;!BANK0               50      0       0       5        0.0%
-   200                           ;!BITSFR4              0      0       0       5        0.0%
-   201                           ;!SFR4                 0      0       0       5        0.0%
-   202                           ;!BITBANK1            50      0       0       6        0.0%
-   203                           ;!BITSFR5              0      0       0       6        0.0%
-   204                           ;!SFR5                 0      0       0       6        0.0%
-   205                           ;!BANK1               50      0       0       7        0.0%
-   206                           ;!BITSFR6              0      0       0       7        0.0%
-   207                           ;!SFR6                 0      0       0       7        0.0%
-   208                           ;!BITBANK2            50      0       0       8        0.0%
-   209                           ;!BITSFR7              0      0       0       8        0.0%
-   210                           ;!SFR7                 0      0       0       8        0.0%
-   211                           ;!BANK2               50      0       0       9        0.0%
-   212                           ;!BITSFR8              0      0       0       9        0.0%
-   213                           ;!SFR8                 0      0       0       9        0.0%
-   214                           ;!BITSFR9              0      0       0      10        0.0%
-   215                           ;!SFR9                 0      0       0      10        0.0%
-   216                           ;!ABS                  0      0       0      10        0.0%
-   217                           ;!BITSFR10             0      0       0      11        0.0%
-   218                           ;!SFR10                0      0       0      11        0.0%
-   219                           ;!DATA                 0      0       0      11        0.0%
-   220                           ;!BITSFR11             0      0       0      12        0.0%
-   221                           ;!SFR11                0      0       0      12        0.0%
-   222                           ;!BITSFR12             0      0       0      13        0.0%
-   223                           ;!SFR12                0      0       0      13        0.0%
-   224                           ;!BITSFR13             0      0       0      14        0.0%
-   225                           ;!SFR13                0      0       0      14        0.0%
-   226                           ;!BITSFR14             0      0       0      15        0.0%
-   227                           ;!SFR14                0      0       0      15        0.0%
-   228                           ;!BITSFR15             0      0       0      16        0.0%
-   229                           ;!SFR15                0      0       0      16        0.0%
-   230                           ;!BITSFR16             0      0       0      17        0.0%
-   231                           ;!SFR16                0      0       0      17        0.0%
-   232                           ;!BITSFR17             0      0       0      18        0.0%
-   233                           ;!SFR17                0      0       0      18        0.0%
-   234                           ;!BITSFR18             0      0       0      19        0.0%
-   235                           ;!SFR18                0      0       0      19        0.0%
-   236                           ;!BITSFR19             0      0       0      20        0.0%
-   237                           ;!SFR19                0      0       0      20        0.0%
-   238                           ;!BITSFR20             0      0       0      21        0.0%
-   239                           ;!SFR20                0      0       0      21        0.0%
-   240                           ;!BITSFR21             0      0       0      22        0.0%
-   241                           ;!SFR21                0      0       0      22        0.0%
-   242                           ;!BITSFR22             0      0       0      23        0.0%
-   243                           ;!SFR22                0      0       0      23        0.0%
-   244                           ;!BITSFR23             0      0       0      24        0.0%
-   245                           ;!SFR23                0      0       0      24        0.0%
-   246                           ;!BITSFR24             0      0       0      25        0.0%
-   247                           ;!SFR24                0      0       0      25        0.0%
-   248                           ;!BITSFR25             0      0       0      26        0.0%
-   249                           ;!SFR25                0      0       0      26        0.0%
-   250                           ;!BITSFR26             0      0       0      27        0.0%
-   251                           ;!SFR26                0      0       0      27        0.0%
-   252                           ;!BITSFR27             0      0       0      28        0.0%
-   253                           ;!SFR27                0      0       0      28        0.0%
-   254                           ;!BITSFR28             0      0       0      29        0.0%
-   255                           ;!SFR28                0      0       0      29        0.0%
-   256                           ;!BITSFR29             0      0       0      30        0.0%
-   257                           ;!SFR29                0      0       0      30        0.0%
-   258                           ;!BITSFR30             0      0       0      31        0.0%
-   259                           ;!SFR30                0      0       0      31        0.0%
-   260                           ;!BITSFR31             0      0       0      32        0.0%
-   261                           ;!SFR31                0      0       0      32        0.0%
-   262                           ;!BITSFR32             0      0       0      33        0.0%
-   263                           ;!SFR32                0      0       0      33        0.0%
-   264                           ;!BITSFR33             0      0       0      34        0.0%
-   265                           ;!SFR33                0      0       0      34        0.0%
-   266                           ;!BITSFR34             0      0       0      35        0.0%
-   267                           ;!SFR34                0      0       0      35        0.0%
-   268                           ;!BITSFR35             0      0       0      36        0.0%
-   269                           ;!SFR35                0      0       0      36        0.0%
-   270                           ;!BITSFR36             0      0       0      37        0.0%
-   271                           ;!SFR36                0      0       0      37        0.0%
-   272                           ;!BITSFR37             0      0       0      38        0.0%
-   273                           ;!SFR37                0      0       0      38        0.0%
-   274                           ;!BITSFR38             0      0       0      39        0.0%
-   275                           ;!SFR38                0      0       0      39        0.0%
-   276                           ;!BITSFR39             0      0       0      40        0.0%
-   277                           ;!SFR39                0      0       0      40        0.0%
-   278                           ;!BITSFR40             0      0       0      41        0.0%
-   279                           ;!SFR40                0      0       0      41        0.0%
-   280                           ;!BITSFR41             0      0       0      42        0.0%
-   281                           ;!SFR41                0      0       0      42        0.0%
-   282                           ;!BITSFR42             0      0       0      43        0.0%
-   283                           ;!SFR42                0      0       0      43        0.0%
-   284                           ;!BITSFR43             0      0       0      44        0.0%
-   285                           ;!SFR43                0      0       0      44        0.0%
-   286                           ;!BITSFR44             0      0       0      45        0.0%
-   287                           ;!SFR44                0      0       0      45        0.0%
-   288                           ;!BITSFR45             0      0       0      46        0.0%
-   289                           ;!SFR45                0      0       0      46        0.0%
-   290                           ;!BITSFR46             0      0       0      47        0.0%
-   291                           ;!SFR46                0      0       0      47        0.0%
-   292                           ;!BITSFR47             0      0       0      48        0.0%
-   293                           ;!SFR47                0      0       0      48        0.0%
-   294                           ;!BITSFR48             0      0       0      49        0.0%
-   295                           ;!SFR48                0      0       0      49        0.0%
-   296                           ;!BITSFR49             0      0       0      50        0.0%
-   297                           ;!SFR49                0      0       0      50        0.0%
-   298                           ;!BITSFR50             0      0       0      51        0.0%
-   299                           ;!SFR50                0      0       0      51        0.0%
-   300                           ;!BITSFR51             0      0       0      52        0.0%
-   301                           ;!SFR51                0      0       0      52        0.0%
-   302                           ;!BITSFR52             0      0       0      53        0.0%
-   303                           ;!SFR52                0      0       0      53        0.0%
-   304                           ;!BITSFR53             0      0       0      54        0.0%
-   305                           ;!SFR53                0      0       0      54        0.0%
-   306                           ;!BITSFR54             0      0       0      55        0.0%
-   307                           ;!SFR54                0      0       0      55        0.0%
-   308                           ;!BITSFR55             0      0       0      56        0.0%
-   309                           ;!SFR55                0      0       0      56        0.0%
-   310                           ;!BITSFR56             0      0       0      57        0.0%
-   311                           ;!SFR56                0      0       0      57        0.0%
-   312                           ;!BITSFR57             0      0       0      58        0.0%
-   313                           ;!SFR57                0      0       0      58        0.0%
-   314                           ;!BITSFR58             0      0       0      59        0.0%
-   315                           ;!SFR58                0      0       0      59        0.0%
-   316                           ;!BITSFR59             0      0       0      60        0.0%
-   317                           ;!SFR59                0      0       0      60        0.0%
-   318                           ;!BITSFR60             0      0       0      61        0.0%
-   319                           ;!SFR60                0      0       0      61        0.0%
-   320                           ;!BITSFR61             0      0       0      62        0.0%
-   321                           ;!SFR61                0      0       0      62        0.0%
-   322                           ;!BITSFR62             0      0       0      63        0.0%
-   323                           ;!SFR62                0      0       0      63        0.0%
-   324                           ;!BITSFR63             0      0       0      64        0.0%
-   325                           ;!SFR63                0      0       0      64        0.0%
-   326                           
-   327                           	global	_main
-   328                           
-   329 ;; *************** function _main *****************
-   330 ;; Defined at:
-   331 ;;		line 14 in file "main.c"
-   332 ;; Parameters:    Size  Location     Type
-   333 ;;  argc            2    0[COMMON] int 
-   334 ;;  argv            2    2[COMMON] PTR PTR unsigned char 
-   335 ;; Auto vars:     Size  Location     Type
-   336 ;;		None
-   337 ;; Return value:  Size  Location     Type
-   338 ;;                  2    0[COMMON] int 
-   339 ;; Registers used:
-   340 ;;		None
-   341 ;; Tracked objects:
-   342 ;;		On entry : B3F/0
-   343 ;;		On exit  : 0/0
-   344 ;;		Unchanged: 0/0
-   345 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-   346 ;;      Params:         4       0       0       0
-   347 ;;      Locals:         0       0       0       0
-   348 ;;      Temps:          0       0       0       0
-   349 ;;      Totals:         4       0       0       0
-   350 ;;Total ram usage:        4 bytes
-   351 ;; This function calls:
-   352 ;;		Nothing
-   353 ;; This function is called by:
-   354 ;;		Startup code after reset
-   355 ;; This function uses a non-reentrant model
-   356 ;;
-   357                           psect	maintext,global,class=CODE,delta=2,merge=1,split=1,group=0
-   358                           	file	"main.c"
-   359                           	line	14
-   360                           global __pmaintext
-   361                           __pmaintext:	;psect for function _main
-   362  07FD                     psect	maintext
-   363                           	file	"main.c"
-   364                           	line	14
-   365                           	global	__size_of_main
-   366                           	__size_of_main	equ	__end_of_main-_main
-   367  0001                     	
-   368                           _main:	
-   369  07FD                     ;incstack = 0
-   370                           	opt	stack 16
-   371                           ; Regs used in _main: []
-   372                           	line	16
-   373                           	
-   374                           l450:	
-   375  07FD                     	line	17
-   376                           ;main.c: 16:     return (0);;	Return value of _main is never used
-   377                           	
-   378                           l5:	
-   379  07FD                     	global	start
-   380                           	ljmp	start
-   381  07FD  2801               	opt stack 0
-   382                           GLOBAL	__end_of_main
-   383                           	__end_of_main:
-   384  07FE                     	signat	_main,8314
-   385                           global	___latbits
-   386                           ___latbits	equ	0
-   387  0000                     	global	btemp
-   388                           	btemp set 07Eh
-   389  007E                     
-   390                           	DABS	1,126,2	;btemp
-   391                           	global	wtemp0
-   392                           	wtemp0 set btemp+0
-   393  007E                     	end
+    93  0000                     # 110 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+    94                           INDF0 equ 00h ;# 
+    95  0000                     # 130 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+    96                           INDF1 equ 01h ;# 
+    97  0001                     # 150 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+    98                           PCL equ 02h ;# 
+    99  0002                     # 170 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   100                           STATUS equ 03h ;# 
+   101  0003                     # 233 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   102                           FSR0L equ 04h ;# 
+   103  0004                     # 253 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   104                           FSR0H equ 05h ;# 
+   105  0005                     # 277 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   106                           FSR1L equ 06h ;# 
+   107  0006                     # 297 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   108                           FSR1H equ 07h ;# 
+   109  0007                     # 317 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   110                           BSR equ 08h ;# 
+   111  0008                     # 375 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   112                           WREG equ 09h ;# 
+   113  0009                     # 395 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   114                           PCLATH equ 0Ah ;# 
+   115  000A                     # 415 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   116                           INTCON equ 0Bh ;# 
+   117  000B                     # 448 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   118                           PORTA equ 0Ch ;# 
+   119  000C                     # 498 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   120                           PORTC equ 0Eh ;# 
+   121  000E                     # 548 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   122                           TRISA equ 012h ;# 
+   123  0012                     # 593 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   124                           TRISC equ 014h ;# 
+   125  0014                     # 643 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   126                           LATA equ 018h ;# 
+   127  0018                     # 688 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   128                           LATC equ 01Ah ;# 
+   129  001A                     # 738 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   130                           ADRES equ 09Bh ;# 
+   131  009B                     # 745 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   132                           ADRESL equ 09Bh ;# 
+   133  009B                     # 815 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   134                           ADRESH equ 09Ch ;# 
+   135  009C                     # 885 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   136                           ADCON0 equ 09Dh ;# 
+   137  009D                     # 956 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   138                           ADCON1 equ 09Eh ;# 
+   139  009E                     # 1022 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   140                           ADACT equ 09Fh ;# 
+   141  009F                     # 1074 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   142                           RC1REG equ 0119h ;# 
+   143  0119                     # 1079 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   144                           RCREG equ 0119h ;# 
+   145  0119                     # 1083 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   146                           RCREG1 equ 0119h ;# 
+   147  0119                     # 1128 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   148                           TX1REG equ 011Ah ;# 
+   149  011A                     # 1133 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   150                           TXREG1 equ 011Ah ;# 
+   151  011A                     # 1137 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   152                           TXREG equ 011Ah ;# 
+   153  011A                     # 1182 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   154                           SP1BRG equ 011Bh ;# 
+   155  011B                     # 1189 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   156                           SP1BRGL equ 011Bh ;# 
+   157  011B                     # 1194 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   158                           SPBRG equ 011Bh ;# 
+   159  011B                     # 1198 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   160                           SPBRG1 equ 011Bh ;# 
+   161  011B                     # 1202 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   162                           SPBRGL equ 011Bh ;# 
+   163  011B                     # 1259 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   164                           SP1BRGH equ 011Ch ;# 
+   165  011C                     # 1264 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   166                           SPBRGH equ 011Ch ;# 
+   167  011C                     # 1268 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   168                           SPBRGH1 equ 011Ch ;# 
+   169  011C                     # 1313 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   170                           RC1STA equ 011Dh ;# 
+   171  011D                     # 1318 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   172                           RCSTA1 equ 011Dh ;# 
+   173  011D                     # 1322 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   174                           RCSTA equ 011Dh ;# 
+   175  011D                     # 1493 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   176                           TX1STA equ 011Eh ;# 
+   177  011E                     # 1498 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   178                           TXSTA1 equ 011Eh ;# 
+   179  011E                     # 1502 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   180                           TXSTA equ 011Eh ;# 
+   181  011E                     # 1673 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   182                           BAUD1CON equ 011Fh ;# 
+   183  011F                     # 1678 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   184                           BAUDCON1 equ 011Fh ;# 
+   185  011F                     # 1682 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   186                           BAUDCTL1 equ 011Fh ;# 
+   187  011F                     # 1686 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   188                           BAUDCON equ 011Fh ;# 
+   189  011F                     # 1690 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   190                           BAUDCTL equ 011Fh ;# 
+   191  011F                     # 1919 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   192                           SSP1BUF equ 018Ch ;# 
+   193  018C                     # 1939 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   194                           SSP1ADD equ 018Dh ;# 
+   195  018D                     # 2059 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   196                           SSP1MSK equ 018Eh ;# 
+   197  018E                     # 2129 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   198                           SSP1STAT equ 018Fh ;# 
+   199  018F                     # 2493 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   200                           SSP1CON1 equ 0190h ;# 
+   201  0190                     # 2613 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   202                           SSP1CON2 equ 0191h ;# 
+   203  0191                     # 2800 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   204                           SSP1CON3 equ 0192h ;# 
+   205  0192                     # 2862 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   206                           TMR1 equ 020Ch ;# 
+   207  020C                     # 2869 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   208                           TMR1L equ 020Ch ;# 
+   209  020C                     # 3039 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   210                           TMR1H equ 020Dh ;# 
+   211  020D                     # 3159 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   212                           T1CON equ 020Eh ;# 
+   213  020E                     # 3255 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   214                           T1GCON equ 020Fh ;# 
+   215  020F                     # 3260 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   216                           PR1 equ 020Fh ;# 
+   217  020F                     # 3451 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   218                           T1GATE equ 0210h ;# 
+   219  0210                     # 3456 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   220                           TMR1GATE equ 0210h ;# 
+   221  0210                     # 3617 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   222                           T1CLK equ 0211h ;# 
+   223  0211                     # 3622 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   224                           TMR1CLK equ 0211h ;# 
+   225  0211                     # 3759 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   226                           T2TMR equ 028Ch ;# 
+   227  028C                     # 3764 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   228                           TMR2 equ 028Ch ;# 
+   229  028C                     # 3813 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   230                           T2PR equ 028Dh ;# 
+   231  028D                     # 3818 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   232                           PR2 equ 028Dh ;# 
+   233  028D                     # 3867 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   234                           T2CON equ 028Eh ;# 
+   235  028E                     # 4013 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   236                           T2HLT equ 028Fh ;# 
+   237  028F                     # 4141 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   238                           T2CLKCON equ 0290h ;# 
+   239  0290                     # 4221 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   240                           T2RST equ 0291h ;# 
+   241  0291                     # 4301 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   242                           CCPR1 equ 030Ch ;# 
+   243  030C                     # 4308 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   244                           CCPR1L equ 030Ch ;# 
+   245  030C                     # 4328 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   246                           CCPR1H equ 030Dh ;# 
+   247  030D                     # 4348 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   248                           CCP1CON equ 030Eh ;# 
+   249  030E                     # 4475 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   250                           CCP1CAP equ 030Fh ;# 
+   251  030F                     # 4543 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   252                           CCPR2 equ 0310h ;# 
+   253  0310                     # 4550 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   254                           CCPR2L equ 0310h ;# 
+   255  0310                     # 4570 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   256                           CCPR2H equ 0311h ;# 
+   257  0311                     # 4590 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   258                           CCP2CON equ 0312h ;# 
+   259  0312                     # 4717 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   260                           CCP2CAP equ 0313h ;# 
+   261  0313                     # 4785 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   262                           PWM3DC equ 0314h ;# 
+   263  0314                     # 4792 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   264                           PWM3DCL equ 0314h ;# 
+   265  0314                     # 4858 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   266                           PWM3DCH equ 0315h ;# 
+   267  0315                     # 5028 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   268                           PWM3CON equ 0316h ;# 
+   269  0316                     # 5084 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   270                           PWM4DC equ 0318h ;# 
+   271  0318                     # 5091 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   272                           PWM4DCL equ 0318h ;# 
+   273  0318                     # 5157 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   274                           PWM4DCH equ 0319h ;# 
+   275  0319                     # 5327 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   276                           PWM4CON equ 031Ah ;# 
+   277  031A                     # 5383 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   278                           PWM5DC equ 031Ch ;# 
+   279  031C                     # 5390 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   280                           PWM5DCL equ 031Ch ;# 
+   281  031C                     # 5456 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   282                           PWM5DCH equ 031Dh ;# 
+   283  031D                     # 5626 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   284                           PWM5CON equ 031Eh ;# 
+   285  031E                     # 5682 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   286                           PWM6DC equ 038Ch ;# 
+   287  038C                     # 5689 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   288                           PWM6DCL equ 038Ch ;# 
+   289  038C                     # 5755 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   290                           PWM6DCH equ 038Dh ;# 
+   291  038D                     # 5925 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   292                           PWM6CON equ 038Eh ;# 
+   293  038E                     # 5983 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   294                           NCO1ACC equ 058Ch ;# 
+   295  058C                     # 5990 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   296                           NCO1ACCL equ 058Ch ;# 
+   297  058C                     # 6060 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   298                           NCO1ACCH equ 058Dh ;# 
+   299  058D                     # 6130 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   300                           NCO1ACCU equ 058Eh ;# 
+   301  058E                     # 6178 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   302                           NCO1INC equ 058Fh ;# 
+   303  058F                     # 6185 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   304                           NCO1INCL equ 058Fh ;# 
+   305  058F                     # 6255 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   306                           NCO1INCH equ 0590h ;# 
+   307  0590                     # 6325 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   308                           NCO1INCU equ 0591h ;# 
+   309  0591                     # 6371 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   310                           NCO1CON equ 0592h ;# 
+   311  0592                     # 6411 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   312                           NCO1CLK equ 0593h ;# 
+   313  0593                     # 6483 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   314                           TMR0L equ 059Ch ;# 
+   315  059C                     # 6488 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   316                           TMR0 equ 059Ch ;# 
+   317  059C                     # 6621 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   318                           TMR0H equ 059Dh ;# 
+   319  059D                     # 6626 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   320                           PR0 equ 059Dh ;# 
+   321  059D                     # 6875 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   322                           T0CON0 equ 059Eh ;# 
+   323  059E                     # 6940 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   324                           T0CON1 equ 059Fh ;# 
+   325  059F                     # 7051 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   326                           CWG1CLKCON equ 060Ch ;# 
+   327  060C                     # 7079 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   328                           CWG1DAT equ 060Dh ;# 
+   329  060D                     # 7125 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   330                           CWG1DBR equ 060Eh ;# 
+   331  060E                     # 7229 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   332                           CWG1DBF equ 060Fh ;# 
+   333  060F                     # 7333 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   334                           CWG1CON0 equ 0610h ;# 
+   335  0610                     # 7434 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   336                           CWG1CON1 equ 0611h ;# 
+   337  0611                     # 7512 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   338                           CWG1AS0 equ 0612h ;# 
+   339  0612                     # 7632 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   340                           CWG1AS1 equ 0613h ;# 
+   341  0613                     # 7676 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   342                           CWG1STR equ 0614h ;# 
+   343  0614                     # 7788 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   344                           PIR0 equ 070Ch ;# 
+   345  070C                     # 7821 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   346                           PIR1 equ 070Dh ;# 
+   347  070D                     # 7860 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   348                           PIR2 equ 070Eh ;# 
+   349  070E                     # 7893 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   350                           PIR3 equ 070Fh ;# 
+   351  070F                     # 7932 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   352                           PIR4 equ 0710h ;# 
+   353  0710                     # 7958 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   354                           PIR5 equ 0711h ;# 
+   355  0711                     # 8003 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   356                           PIR6 equ 0712h ;# 
+   357  0712                     # 8029 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   358                           PIR7 equ 0713h ;# 
+   359  0713                     # 8071 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   360                           PIE0 equ 0716h ;# 
+   361  0716                     # 8104 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   362                           PIE1 equ 0717h ;# 
+   363  0717                     # 8137 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   364                           PIE2 equ 0718h ;# 
+   365  0718                     # 8170 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   366                           PIE3 equ 0719h ;# 
+   367  0719                     # 8209 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   368                           PIE4 equ 071Ah ;# 
+   369  071A                     # 8235 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   370                           PIE5 equ 071Bh ;# 
+   371  071B                     # 8280 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   372                           PIE6 equ 071Ch ;# 
+   373  071C                     # 8306 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   374                           PIE7 equ 071Dh ;# 
+   375  071D                     # 8348 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   376                           PMD0 equ 0796h ;# 
+   377  0796                     # 8393 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   378                           PMD1 equ 0797h ;# 
+   379  0797                     # 8441 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   380                           PMD2 equ 0798h ;# 
+   381  0798                     # 8486 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   382                           PMD3 equ 0799h ;# 
+   383  0799                     # 8536 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   384                           PMD4 equ 079Ah ;# 
+   385  079A                     # 8570 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   386                           PMD5 equ 079Bh ;# 
+   387  079B                     # 8609 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   388                           WDTCON0 equ 080Ch ;# 
+   389  080C                     # 8684 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   390                           WDTCON1 equ 080Dh ;# 
+   391  080D                     # 8778 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   392                           WDTPSL equ 080Eh ;# 
+   393  080E                     # 8906 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   394                           WDTPSH equ 080Fh ;# 
+   395  080F                     # 9034 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   396                           WDTTMR equ 0810h ;# 
+   397  0810                     # 9116 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   398                           BORCON equ 0811h ;# 
+   399  0811                     # 9143 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   400                           VREGCON equ 0812h ;# 
+   401  0812                     # 9164 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   402                           PCON0 equ 0813h ;# 
+   403  0813                     # 9226 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   404                           PCON1 equ 0814h ;# 
+   405  0814                     # 9247 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   406                           NVMADR equ 081Ah ;# 
+   407  081A                     # 9254 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   408                           NVMADRL equ 081Ah ;# 
+   409  081A                     # 9316 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   410                           NVMADRH equ 081Bh ;# 
+   411  081B                     # 9372 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   412                           NVMDAT equ 081Ch ;# 
+   413  081C                     # 9379 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   414                           NVMDATL equ 081Ch ;# 
+   415  081C                     # 9441 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   416                           NVMDATH equ 081Dh ;# 
+   417  081D                     # 9491 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   418                           NVMCON1 equ 081Eh ;# 
+   419  081E                     # 9547 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   420                           NVMCON2 equ 081Fh ;# 
+   421  081F                     # 9567 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   422                           CPUDOZE equ 088Ch ;# 
+   423  088C                     # 9632 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   424                           OSCCON1 equ 088Dh ;# 
+   425  088D                     # 9702 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   426                           OSCCON2 equ 088Eh ;# 
+   427  088E                     # 9772 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   428                           OSCCON3 equ 088Fh ;# 
+   429  088F                     # 9806 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   430                           OSCSTAT equ 0890h ;# 
+   431  0890                     # 9858 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   432                           OSCEN equ 0891h ;# 
+   433  0891                     # 9904 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   434                           OSCTUNE equ 0892h ;# 
+   435  0892                     # 9962 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   436                           OSCFRQ equ 0893h ;# 
+   437  0893                     # 10002 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   438                           CLKRCON equ 0895h ;# 
+   439  0895                     # 10067 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   440                           CLKRCLK equ 0896h ;# 
+   441  0896                     # 10113 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   442                           FVRCON equ 090Ch ;# 
+   443  090C                     # 10189 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   444                           DAC1CON0 equ 090Eh ;# 
+   445  090E                     # 10290 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   446                           DAC1CON1 equ 090Fh ;# 
+   447  090F                     # 10342 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   448                           ZCDCON equ 091Fh ;# 
+   449  091F                     # 10388 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   450                           CMOUT equ 098Fh ;# 
+   451  098F                     # 10393 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   452                           CMSTAT equ 098Fh ;# 
+   453  098F                     # 10466 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   454                           CM1CON0 equ 0990h ;# 
+   455  0990                     # 10546 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   456                           CM1CON1 equ 0991h ;# 
+   457  0991                     # 10586 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   458                           CM1NCH equ 0992h ;# 
+   459  0992                     # 10646 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   460                           CM1PCH equ 0993h ;# 
+   461  0993                     # 10706 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   462                           CM2CON0 equ 0994h ;# 
+   463  0994                     # 10786 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   464                           CM2CON1 equ 0995h ;# 
+   465  0995                     # 10826 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   466                           CM2NCH equ 0996h ;# 
+   467  0996                     # 10886 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   468                           CM2PCH equ 0997h ;# 
+   469  0997                     # 10946 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   470                           CLCDATA equ 01E0Fh ;# 
+   471  1E0F                     # 10984 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   472                           CLC1CON equ 01E10h ;# 
+   473  1E10                     # 11102 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   474                           CLC1POL equ 01E11h ;# 
+   475  1E11                     # 11180 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   476                           CLC1SEL0 equ 01E12h ;# 
+   477  1E12                     # 11284 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   478                           CLC1SEL1 equ 01E13h ;# 
+   479  1E13                     # 11388 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   480                           CLC1SEL2 equ 01E14h ;# 
+   481  1E14                     # 11492 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   482                           CLC1SEL3 equ 01E15h ;# 
+   483  1E15                     # 11596 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   484                           CLC1GLS0 equ 01E16h ;# 
+   485  1E16                     # 11708 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   486                           CLC1GLS1 equ 01E17h ;# 
+   487  1E17                     # 11820 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   488                           CLC1GLS2 equ 01E18h ;# 
+   489  1E18                     # 11932 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   490                           CLC1GLS3 equ 01E19h ;# 
+   491  1E19                     # 12044 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   492                           CLC2CON equ 01E1Ah ;# 
+   493  1E1A                     # 12162 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   494                           CLC2POL equ 01E1Bh ;# 
+   495  1E1B                     # 12240 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   496                           CLC2SEL0 equ 01E1Ch ;# 
+   497  1E1C                     # 12344 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   498                           CLC2SEL1 equ 01E1Dh ;# 
+   499  1E1D                     # 12448 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   500                           CLC2SEL2 equ 01E1Eh ;# 
+   501  1E1E                     # 12552 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   502                           CLC2SEL3 equ 01E1Fh ;# 
+   503  1E1F                     # 12656 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   504                           CLC2GLS0 equ 01E20h ;# 
+   505  1E20                     # 12768 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   506                           CLC2GLS1 equ 01E21h ;# 
+   507  1E21                     # 12880 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   508                           CLC2GLS2 equ 01E22h ;# 
+   509  1E22                     # 12992 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   510                           CLC2GLS3 equ 01E23h ;# 
+   511  1E23                     # 13104 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   512                           CLC3CON equ 01E24h ;# 
+   513  1E24                     # 13222 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   514                           CLC3POL equ 01E25h ;# 
+   515  1E25                     # 13300 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   516                           CLC3SEL0 equ 01E26h ;# 
+   517  1E26                     # 13404 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   518                           CLC3SEL1 equ 01E27h ;# 
+   519  1E27                     # 13508 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   520                           CLC3SEL2 equ 01E28h ;# 
+   521  1E28                     # 13612 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   522                           CLC3SEL3 equ 01E29h ;# 
+   523  1E29                     # 13716 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   524                           CLC3GLS0 equ 01E2Ah ;# 
+   525  1E2A                     # 13828 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   526                           CLC3GLS1 equ 01E2Bh ;# 
+   527  1E2B                     # 13940 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   528                           CLC3GLS2 equ 01E2Ch ;# 
+   529  1E2C                     # 14052 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   530                           CLC3GLS3 equ 01E2Dh ;# 
+   531  1E2D                     # 14164 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   532                           CLC4CON equ 01E2Eh ;# 
+   533  1E2E                     # 14282 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   534                           CLC4POL equ 01E2Fh ;# 
+   535  1E2F                     # 14360 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   536                           CLC4SEL0 equ 01E30h ;# 
+   537  1E30                     # 14464 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   538                           CLC4SEL1 equ 01E31h ;# 
+   539  1E31                     # 14568 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   540                           CLC4SEL2 equ 01E32h ;# 
+   541  1E32                     # 14672 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   542                           CLC4SEL3 equ 01E33h ;# 
+   543  1E33                     # 14776 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   544                           CLC4GLS0 equ 01E34h ;# 
+   545  1E34                     # 14888 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   546                           CLC4GLS1 equ 01E35h ;# 
+   547  1E35                     # 15000 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   548                           CLC4GLS2 equ 01E36h ;# 
+   549  1E36                     # 15112 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   550                           CLC4GLS3 equ 01E37h ;# 
+   551  1E37                     # 15224 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   552                           PPSLOCK equ 01E8Fh ;# 
+   553  1E8F                     # 15244 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   554                           INTPPS equ 01E90h ;# 
+   555  1E90                     # 15302 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   556                           T0CKIPPS equ 01E91h ;# 
+   557  1E91                     # 15360 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   558                           T1CKIPPS equ 01E92h ;# 
+   559  1E92                     # 15418 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   560                           T1GPPS equ 01E93h ;# 
+   561  1E93                     # 15476 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   562                           T2INPPS equ 01E9Ch ;# 
+   563  1E9C                     # 15534 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   564                           CCP1PPS equ 01EA1h ;# 
+   565  1EA1                     # 15592 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   566                           CCP2PPS equ 01EA2h ;# 
+   567  1EA2                     # 15650 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   568                           CWG1PPS equ 01EB1h ;# 
+   569  1EB1                     # 15708 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   570                           CLCIN0PPS equ 01EBBh ;# 
+   571  1EBB                     # 15766 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   572                           CLCIN1PPS equ 01EBCh ;# 
+   573  1EBC                     # 15824 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   574                           CLCIN2PPS equ 01EBDh ;# 
+   575  1EBD                     # 15882 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   576                           CLCIN3PPS equ 01EBEh ;# 
+   577  1EBE                     # 15940 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   578                           ADACTPPS equ 01EC3h ;# 
+   579  1EC3                     # 15998 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   580                           SSP1CLKPPS equ 01EC5h ;# 
+   581  1EC5                     # 16056 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   582                           SSP1DATPPS equ 01EC6h ;# 
+   583  1EC6                     # 16114 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   584                           SSP1SSPPS equ 01EC7h ;# 
+   585  1EC7                     # 16172 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   586                           RX1DTPPS equ 01ECBh ;# 
+   587  1ECB                     # 16230 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   588                           TX1CKPPS equ 01ECCh ;# 
+   589  1ECC                     # 16288 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   590                           RA0PPS equ 01F10h ;# 
+   591  1F10                     # 16332 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   592                           RA1PPS equ 01F11h ;# 
+   593  1F11                     # 16376 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   594                           RA2PPS equ 01F12h ;# 
+   595  1F12                     # 16420 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   596                           RA3PPS equ 01F13h ;# 
+   597  1F13                     # 16464 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   598                           RA4PPS equ 01F14h ;# 
+   599  1F14                     # 16508 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   600                           RA5PPS equ 01F15h ;# 
+   601  1F15                     # 16552 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   602                           RC0PPS equ 01F20h ;# 
+   603  1F20                     # 16596 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   604                           RC1PPS equ 01F21h ;# 
+   605  1F21                     # 16640 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   606                           RC2PPS equ 01F22h ;# 
+   607  1F22                     # 16684 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   608                           RC3PPS equ 01F23h ;# 
+   609  1F23                     # 16728 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   610                           RC4PPS equ 01F24h ;# 
+   611  1F24                     # 16772 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   612                           RC5PPS equ 01F25h ;# 
+   613  1F25                     # 16816 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   614                           ANSELA equ 01F38h ;# 
+   615  1F38                     # 16861 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   616                           WPUA equ 01F39h ;# 
+   617  1F39                     # 16911 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   618                           ODCONA equ 01F3Ah ;# 
+   619  1F3A                     # 16956 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   620                           SLRCONA equ 01F3Bh ;# 
+   621  1F3B                     # 17001 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   622                           INLVLA equ 01F3Ch ;# 
+   623  1F3C                     # 17051 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   624                           IOCAP equ 01F3Dh ;# 
+   625  1F3D                     # 17101 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   626                           IOCAN equ 01F3Eh ;# 
+   627  1F3E                     # 17151 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   628                           IOCAF equ 01F3Fh ;# 
+   629  1F3F                     # 17201 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   630                           ANSELC equ 01F4Eh ;# 
+   631  1F4E                     # 17251 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   632                           WPUC equ 01F4Fh ;# 
+   633  1F4F                     # 17301 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   634                           ODCONC equ 01F50h ;# 
+   635  1F50                     # 17351 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   636                           SLRCONC equ 01F51h ;# 
+   637  1F51                     # 17401 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   638                           INLVLC equ 01F52h ;# 
+   639  1F52                     # 17451 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   640                           IOCCP equ 01F53h ;# 
+   641  1F53                     # 17501 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   642                           IOCCN equ 01F54h ;# 
+   643  1F54                     # 17551 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   644                           IOCCF equ 01F55h ;# 
+   645  1F55                     # 17601 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   646                           STATUS_SHAD equ 01FE4h ;# 
+   647  1FE4                     # 17641 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   648                           WREG_SHAD equ 01FE5h ;# 
+   649  1FE5                     # 17661 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   650                           BSR_SHAD equ 01FE6h ;# 
+   651  1FE6                     # 17681 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   652                           PCLATH_SHAD equ 01FE7h ;# 
+   653  1FE7                     # 17701 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   654                           FSR0_SHAD equ 01FE8h ;# 
+   655  1FE8                     # 17708 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   656                           FSR0L_SHAD equ 01FE8h ;# 
+   657  1FE8                     # 17728 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   658                           FSR0H_SHAD equ 01FE9h ;# 
+   659  1FE9                     # 17748 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   660                           FSR1_SHAD equ 01FEAh ;# 
+   661  1FEA                     # 17755 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   662                           FSR1L_SHAD equ 01FEAh ;# 
+   663  1FEA                     # 17775 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   664                           FSR1H_SHAD equ 01FEBh ;# 
+   665  1FEB                     # 17795 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   666                           STKPTR equ 01FEDh ;# 
+   667  1FED                     # 17839 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   668                           TOSL equ 01FEEh ;# 
+   669  1FEE                     # 17909 "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f15323.h"
+   670                           TOSH equ 01FEFh ;# 
+   671  1FEF                     	FNROOT	_main
+   672                           	global	_LATAbits
+   673                           _LATAbits	set	0x18
+   674  0018                     	global	_PORTCbits
+   675                           _PORTCbits	set	0xE
+   676  000E                     	global	_LATCbits
+   677                           _LATCbits	set	0x1A
+   678  001A                     	global	_LATC
+   679                           _LATC	set	0x1A
+   680  001A                     	global	_LATA
+   681                           _LATA	set	0x18
+   682  0018                     	global	_TRISAbits
+   683                           _TRISAbits	set	0x12
+   684  0012                     	global	_TRISCbits
+   685                           _TRISCbits	set	0x14
+   686  0014                     	global	_ANSELC
+   687                           _ANSELC	set	0x1F4E
+   688  1F4E                     	global	_ANSELA
+   689                           _ANSELA	set	0x1F38
+   690  1F38                     ; #config settings
+   691                           	file	"C:\Users\DAVIDM~1\AppData\Local\Temp\s430."
+   692                           	line	#
+   693                           psect cinit,class=CODE,delta=2
+   694                           global start_initialization
+   695                           start_initialization:
+   696  07FE                     
+   697                           global __initialization
+   698                           __initialization:
+   699  07FE                     psect cinit,class=CODE,delta=2,merge=1
+   700                           global end_of_initialization,__end_of__initialization
+   701                           
+   702                           ;End of C runtime variable initialization code
+   703                           
+   704                           end_of_initialization:
+   705  07FE                     __end_of__initialization:
+   706  07FE                     movlb 0
+   707  07FE  0140               ljmp _main	;jump to C main() function
+   708  07FF  2F95               psect	cstackCOMMON,class=COMMON,space=1,noexec
+   709                           global __pcstackCOMMON
+   710                           __pcstackCOMMON:
+   711  0070                     ?_main:	; 2 bytes @ 0x0
+   712  0070                     main@argc:	; 2 bytes @ 0x0
+   713  0070                     	ds	2
+   714  0070                     main@argv:	; 2 bytes @ 0x2
+   715  0072                     	ds	2
+   716  0072                     ??_main:	; 1 bytes @ 0x4
+   717  0074                     	global	main@pressed
+   718                           main@pressed:	; 2 bytes @ 0x4
+   719  0074                     	ds	2
+   720  0074                     ;!
+   721                           ;!Data Sizes:
+   722                           ;!    Strings     0
+   723                           ;!    Constant    0
+   724                           ;!    Data        0
+   725                           ;!    BSS         0
+   726                           ;!    Persistent  0
+   727                           ;!    Stack       0
+   728                           ;!
+   729                           ;!Auto Spaces:
+   730                           ;!    Space          Size  Autos    Used
+   731                           ;!    COMMON           14      6       6
+   732                           ;!    BANK0            80      0       0
+   733                           ;!    BANK1            80      0       0
+   734                           ;!    BANK2            80      0       0
+   735                           
+   736                           ;!
+   737                           ;!Pointer List with Targets:
+   738                           ;!
+   739                           ;!    None.
+   740                           
+   741                           
+   742                           ;!
+   743                           ;!Critical Paths under _main in COMMON
+   744                           ;!
+   745                           ;!    None.
+   746                           ;!
+   747                           ;!Critical Paths under _main in BANK0
+   748                           ;!
+   749                           ;!    None.
+   750                           ;!
+   751                           ;!Critical Paths under _main in BANK1
+   752                           ;!
+   753                           ;!    None.
+   754                           ;!
+   755                           ;!Critical Paths under _main in BANK2
+   756                           ;!
+   757                           ;!    None.
+   758                           
+   759 ;;
+   760 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   761 ;;
+   762                           
+   763                           ;!
+   764                           ;!Call Graph Tables:
+   765                           ;!
+   766                           ;! ---------------------------------------------------------------------------------
+   767                           ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   768                           ;! ---------------------------------------------------------------------------------
+   769                           ;! (0) _main                                                 6     2      4     192
+   770                           ;!                                              0 COMMON     6     2      4
+   771                           ;! ---------------------------------------------------------------------------------
+   772                           ;! Estimated maximum stack depth 0
+   773                           ;! ---------------------------------------------------------------------------------
+   774                           ;!
+   775                           ;! Call Graph Graphs:
+   776                           ;!
+   777                           ;! _main (ROOT)
+   778                           ;!
+   779                           
+   780                           ;! Address spaces:
+   781                           
+   782                           ;!Name               Size   Autos  Total    Cost      Usage
+   783                           ;!BIGRAM              F0      0       0       0        0.0%
+   784                           ;!NULL                 0      0       0       0        0.0%
+   785                           ;!CODE                 0      0       0       0        0.0%
+   786                           ;!BITCOMMON            E      0       0       1        0.0%
+   787                           ;!BITSFR0              0      0       0       1        0.0%
+   788                           ;!SFR0                 0      0       0       1        0.0%
+   789                           ;!COMMON               E      6       6       2       42.9%
+   790                           ;!BITSFR1              0      0       0       2        0.0%
+   791                           ;!SFR1                 0      0       0       2        0.0%
+   792                           ;!BITSFR2              0      0       0       3        0.0%
+   793                           ;!SFR2                 0      0       0       3        0.0%
+   794                           ;!STACK                0      0       0       3        0.0%
+   795                           ;!BITBANK0            50      0       0       4        0.0%
+   796                           ;!BITSFR3              0      0       0       4        0.0%
+   797                           ;!SFR3                 0      0       0       4        0.0%
+   798                           ;!BANK0               50      0       0       5        0.0%
+   799                           ;!BITSFR4              0      0       0       5        0.0%
+   800                           ;!SFR4                 0      0       0       5        0.0%
+   801                           ;!BITBANK1            50      0       0       6        0.0%
+   802                           ;!BITSFR5              0      0       0       6        0.0%
+   803                           ;!SFR5                 0      0       0       6        0.0%
+   804                           ;!BANK1               50      0       0       7        0.0%
+   805                           ;!BITSFR6              0      0       0       7        0.0%
+   806                           ;!SFR6                 0      0       0       7        0.0%
+   807                           ;!BITBANK2            50      0       0       8        0.0%
+   808                           ;!BITSFR7              0      0       0       8        0.0%
+   809                           ;!SFR7                 0      0       0       8        0.0%
+   810                           ;!BANK2               50      0       0       9        0.0%
+   811                           ;!BITSFR8              0      0       0       9        0.0%
+   812                           ;!SFR8                 0      0       0       9        0.0%
+   813                           ;!BITSFR9              0      0       0      10        0.0%
+   814                           ;!SFR9                 0      0       0      10        0.0%
+   815                           ;!ABS                  0      0       0      10        0.0%
+   816                           ;!BITSFR10             0      0       0      11        0.0%
+   817                           ;!SFR10                0      0       0      11        0.0%
+   818                           ;!DATA                 0      0       0      11        0.0%
+   819                           ;!BITSFR11             0      0       0      12        0.0%
+   820                           ;!SFR11                0      0       0      12        0.0%
+   821                           ;!BITSFR12             0      0       0      13        0.0%
+   822                           ;!SFR12                0      0       0      13        0.0%
+   823                           ;!BITSFR13             0      0       0      14        0.0%
+   824                           ;!SFR13                0      0       0      14        0.0%
+   825                           ;!BITSFR14             0      0       0      15        0.0%
+   826                           ;!SFR14                0      0       0      15        0.0%
+   827                           ;!BITSFR15             0      0       0      16        0.0%
+   828                           ;!SFR15                0      0       0      16        0.0%
+   829                           ;!BITSFR16             0      0       0      17        0.0%
+   830                           ;!SFR16                0      0       0      17        0.0%
+   831                           ;!BITSFR17             0      0       0      18        0.0%
+   832                           ;!SFR17                0      0       0      18        0.0%
+   833                           ;!BITSFR18             0      0       0      19        0.0%
+   834                           ;!SFR18                0      0       0      19        0.0%
+   835                           ;!BITSFR19             0      0       0      20        0.0%
+   836                           ;!SFR19                0      0       0      20        0.0%
+   837                           ;!BITSFR20             0      0       0      21        0.0%
+   838                           ;!SFR20                0      0       0      21        0.0%
+   839                           ;!BITSFR21             0      0       0      22        0.0%
+   840                           ;!SFR21                0      0       0      22        0.0%
+   841                           ;!BITSFR22             0      0       0      23        0.0%
+   842                           ;!SFR22                0      0       0      23        0.0%
+   843                           ;!BITSFR23             0      0       0      24        0.0%
+   844                           ;!SFR23                0      0       0      24        0.0%
+   845                           ;!BITSFR24             0      0       0      25        0.0%
+   846                           ;!SFR24                0      0       0      25        0.0%
+   847                           ;!BITSFR25             0      0       0      26        0.0%
+   848                           ;!SFR25                0      0       0      26        0.0%
+   849                           ;!BITSFR26             0      0       0      27        0.0%
+   850                           ;!SFR26                0      0       0      27        0.0%
+   851                           ;!BITSFR27             0      0       0      28        0.0%
+   852                           ;!SFR27                0      0       0      28        0.0%
+   853                           ;!BITSFR28             0      0       0      29        0.0%
+   854                           ;!SFR28                0      0       0      29        0.0%
+   855                           ;!BITSFR29             0      0       0      30        0.0%
+   856                           ;!SFR29                0      0       0      30        0.0%
+   857                           ;!BITSFR30             0      0       0      31        0.0%
+   858                           ;!SFR30                0      0       0      31        0.0%
+   859                           ;!BITSFR31             0      0       0      32        0.0%
+   860                           ;!SFR31                0      0       0      32        0.0%
+   861                           ;!BITSFR32             0      0       0      33        0.0%
+   862                           ;!SFR32                0      0       0      33        0.0%
+   863                           ;!BITSFR33             0      0       0      34        0.0%
+   864                           ;!SFR33                0      0       0      34        0.0%
+   865                           ;!BITSFR34             0      0       0      35        0.0%
+   866                           ;!SFR34                0      0       0      35        0.0%
+   867                           ;!BITSFR35             0      0       0      36        0.0%
+   868                           ;!SFR35                0      0       0      36        0.0%
+   869                           ;!BITSFR36             0      0       0      37        0.0%
+   870                           ;!SFR36                0      0       0      37        0.0%
+   871                           ;!BITSFR37             0      0       0      38        0.0%
+   872                           ;!SFR37                0      0       0      38        0.0%
+   873                           ;!BITSFR38             0      0       0      39        0.0%
+   874                           ;!SFR38                0      0       0      39        0.0%
+   875                           ;!BITSFR39             0      0       0      40        0.0%
+   876                           ;!SFR39                0      0       0      40        0.0%
+   877                           ;!BITSFR40             0      0       0      41        0.0%
+   878                           ;!SFR40                0      0       0      41        0.0%
+   879                           ;!BITSFR41             0      0       0      42        0.0%
+   880                           ;!SFR41                0      0       0      42        0.0%
+   881                           ;!BITSFR42             0      0       0      43        0.0%
+   882                           ;!SFR42                0      0       0      43        0.0%
+   883                           ;!BITSFR43             0      0       0      44        0.0%
+   884                           ;!SFR43                0      0       0      44        0.0%
+   885                           ;!BITSFR44             0      0       0      45        0.0%
+   886                           ;!SFR44                0      0       0      45        0.0%
+   887                           ;!BITSFR45             0      0       0      46        0.0%
+   888                           ;!SFR45                0      0       0      46        0.0%
+   889                           ;!BITSFR46             0      0       0      47        0.0%
+   890                           ;!SFR46                0      0       0      47        0.0%
+   891                           ;!BITSFR47             0      0       0      48        0.0%
+   892                           ;!SFR47                0      0       0      48        0.0%
+   893                           ;!BITSFR48             0      0       0      49        0.0%
+   894                           ;!SFR48                0      0       0      49        0.0%
+   895                           ;!BITSFR49             0      0       0      50        0.0%
+   896                           ;!SFR49                0      0       0      50        0.0%
+   897                           ;!BITSFR50             0      0       0      51        0.0%
+   898                           ;!SFR50                0      0       0      51        0.0%
+   899                           ;!BITSFR51             0      0       0      52        0.0%
+   900                           ;!SFR51                0      0       0      52        0.0%
+   901                           ;!BITSFR52             0      0       0      53        0.0%
+   902                           ;!SFR52                0      0       0      53        0.0%
+   903                           ;!BITSFR53             0      0       0      54        0.0%
+   904                           ;!SFR53                0      0       0      54        0.0%
+   905                           ;!BITSFR54             0      0       0      55        0.0%
+   906                           ;!SFR54                0      0       0      55        0.0%
+   907                           ;!BITSFR55             0      0       0      56        0.0%
+   908                           ;!SFR55                0      0       0      56        0.0%
+   909                           ;!BITSFR56             0      0       0      57        0.0%
+   910                           ;!SFR56                0      0       0      57        0.0%
+   911                           ;!BITSFR57             0      0       0      58        0.0%
+   912                           ;!SFR57                0      0       0      58        0.0%
+   913                           ;!BITSFR58             0      0       0      59        0.0%
+   914                           ;!SFR58                0      0       0      59        0.0%
+   915                           ;!BITSFR59             0      0       0      60        0.0%
+   916                           ;!SFR59                0      0       0      60        0.0%
+   917                           ;!BITSFR60             0      0       0      61        0.0%
+   918                           ;!SFR60                0      0       0      61        0.0%
+   919                           ;!BITSFR61             0      0       0      62        0.0%
+   920                           ;!SFR61                0      0       0      62        0.0%
+   921                           ;!BITSFR62             0      0       0      63        0.0%
+   922                           ;!SFR62                0      0       0      63        0.0%
+   923                           ;!BITSFR63             0      0       0      64        0.0%
+   924                           ;!SFR63                0      0       0      64        0.0%
+   925                           
+   926                           	global	_main
+   927                           
+   928 ;; *************** function _main *****************
+   929 ;; Defined at:
+   930 ;;		line 51 in file "main.c"
+   931 ;; Parameters:    Size  Location     Type
+   932 ;;  argc            2    0[COMMON] int 
+   933 ;;  argv            2    2[COMMON] PTR PTR unsigned char 
+   934 ;; Auto vars:     Size  Location     Type
+   935 ;;  pressed         2    4[COMMON] struct Keys
+   936 ;; Return value:  Size  Location     Type
+   937 ;;                  2    0[COMMON] int 
+   938 ;; Registers used:
+   939 ;;		status,2
+   940 ;; Tracked objects:
+   941 ;;		On entry : B3F/0
+   942 ;;		On exit  : 0/0
+   943 ;;		Unchanged: 0/0
+   944 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+   945 ;;      Params:         4       0       0       0
+   946 ;;      Locals:         2       0       0       0
+   947 ;;      Temps:          0       0       0       0
+   948 ;;      Totals:         6       0       0       0
+   949 ;;Total ram usage:        6 bytes
+   950 ;; This function calls:
+   951 ;;		Nothing
+   952 ;; This function is called by:
+   953 ;;		Startup code after reset
+   954 ;; This function uses a non-reentrant model
+   955 ;;
+   956                           psect	maintext,global,class=CODE,delta=2,merge=1,split=1,group=0
+   957                           	file	"main.c"
+   958                           	line	51
+   959                           global __pmaintext
+   960                           __pmaintext:	;psect for function _main
+   961  0795                     psect	maintext
+   962                           	file	"main.c"
+   963                           	line	51
+   964                           	global	__size_of_main
+   965                           	__size_of_main	equ	__end_of_main-_main
+   966  0069                     	
+   967                           _main:	
+   968  0795                     ;incstack = 0
+   969                           	opt	stack 16
+   970                           ; Regs used in _main: [status,2]
+   971                           	line	54
+   972                           	
+   973                           l534:	
+   974  0795                     ;main.c: 54:     ANSELA = 0;
+   975                           	movlb 62	; select bank62
+   976  0795  017E               	clrf	(7992)^01F00h	;volatile
+   977  0796  01B8               	line	55
+   978                           ;main.c: 55:     ANSELC = 0;
+   979                           	clrf	(8014)^01F00h	;volatile
+   980  0797  01CE               	line	58
+   981                           	
+   982                           l536:	
+   983  0798                     ;main.c: 58:     TRISCbits.TRISC5 = 0;
+   984                           	movlb 0	; select bank0
+   985  0798  0140               	bcf	(20),5	;volatile
+   986  0799  1294               	line	59
+   987                           	
+   988                           l538:	
+   989  079A                     ;main.c: 59:     TRISAbits.TRISA4 = 0;
+   990                           	bcf	(18),4	;volatile
+   991  079A  1212               	line	60
+   992                           	
+   993                           l540:	
+   994  079B                     ;main.c: 60:     TRISAbits.TRISA2 = 0;
+   995                           	bcf	(18),2	;volatile
+   996  079B  1112               	line	61
+   997                           	
+   998                           l542:	
+   999  079C                     ;main.c: 61:     TRISCbits.TRISC0 = 0;
+  1000                           	bcf	(20),0	;volatile
+  1001  079C  1014               	line	64
+  1002                           	
+  1003                           l544:	
+  1004  079D                     ;main.c: 64:     TRISCbits.TRISC1 = 1;
+  1005                           	bsf	(20),1	;volatile
+  1006  079D  1494               	line	65
+  1007                           	
+  1008                           l546:	
+  1009  079E                     ;main.c: 65:     TRISCbits.TRISC2 = 1;
+  1010                           	bsf	(20),2	;volatile
+  1011  079E  1514               	line	66
+  1012                           	
+  1013                           l548:	
+  1014  079F                     ;main.c: 66:     TRISCbits.TRISC3 = 1;
+  1015                           	bsf	(20),3	;volatile
+  1016  079F  1594               	line	67
+  1017                           	
+  1018                           l550:	
+  1019  07A0                     ;main.c: 67:     TRISCbits.TRISC4 = 1;
+  1020                           	bsf	(20),4	;volatile
+  1021  07A0  1614               	line	70
+  1022                           ;main.c: 70:     LATA = 0;
+  1023                           	clrf	(24)	;volatile
+  1024  07A1  0198               	line	71
+  1025                           ;main.c: 71:     LATC = 0;
+  1026                           	clrf	(26)	;volatile
+  1027  07A2  019A               	goto	l552
+  1028  07A3  2FA4               	line	74
+  1029                           ;main.c: 73:     Keys pressed;;main.c: 74:     for(;;){
+  1030                           	
+  1031                           l23:	
+  1032  07A4                     	line	76
+  1033                           	
+  1034                           l552:	
+  1035  07A4                     ;main.c: 76:         LATCbits.LATC5 = 1;
+  1036                           	bsf	(26),5	;volatile
+  1037  07A4  169A               	line	77
+  1038                           	
+  1039                           l554:	
+  1040  07A5                     ;main.c: 77:         pressed.one = PORTCbits.RC4;
+  1041                           	bcf	(main@pressed),0
+  1042  07A5  1074               	btfss	(14),4	;volatile
+  1043  07A6  1E0E               	goto	u175
+  1044  07A7  2FA9               	bsf	(main@pressed),0
+  1045  07A8  1474               u175:
+  1046  07A9                     
+  1047                           	line	78
+  1048                           	
+  1049                           l556:	
+  1050  07A9                     ;main.c: 78:         pressed.four = PORTCbits.RC3;
+  1051                           	bcf	(main@pressed),4
+  1052  07A9  1274               	movlb 0	; select bank0
+  1053  07AA  0140               	btfss	(14),3	;volatile
+  1054  07AB  1D8E               	goto	u185
+  1055  07AC  2FAE               	bsf	(main@pressed),4
+  1056  07AD  1674               u185:
+  1057  07AE                     
+  1058                           	line	79
+  1059                           	
+  1060                           l558:	
+  1061  07AE                     ;main.c: 79:         pressed.seven = PORTCbits.RC2;
+  1062                           	bcf	0+(main@pressed)+01h,0
+  1063  07AE  1075               	movlb 0	; select bank0
+  1064  07AF  0140               	btfss	(14),2	;volatile
+  1065  07B0  1D0E               	goto	u195
+  1066  07B1  2FB3               	bsf	0+(main@pressed)+01h,0
+  1067  07B2  1475               u195:
+  1068  07B3                     
+  1069                           	line	80
+  1070                           	
+  1071                           l560:	
+  1072  07B3                     ;main.c: 80:         pressed.star = PORTCbits.RC1;
+  1073                           	bcf	0+(main@pressed)+01h,4
+  1074  07B3  1275               	movlb 0	; select bank0
+  1075  07B4  0140               	btfss	(14),1	;volatile
+  1076  07B5  1C8E               	goto	u205
+  1077  07B6  2FB8               	bsf	0+(main@pressed)+01h,4
+  1078  07B7  1675               u205:
+  1079  07B8                     
+  1080                           	line	81
+  1081                           	
+  1082                           l562:	
+  1083  07B8                     ;main.c: 81:         LATCbits.LATC5 = 0;
+  1084                           	movlb 0	; select bank0
+  1085  07B8  0140               	bcf	(26),5	;volatile
+  1086  07B9  129A               	line	83
+  1087                           	
+  1088                           l564:	
+  1089  07BA                     ;main.c: 83:         LATAbits.LATA4 = 1;
+  1090                           	bsf	(24),4	;volatile
+  1091  07BA  1618               	line	84
+  1092                           	
+  1093                           l566:	
+  1094  07BB                     ;main.c: 84:         pressed.two = PORTCbits.RC4;
+  1095                           	bcf	(main@pressed),1
+  1096  07BB  10F4               	btfss	(14),4	;volatile
+  1097  07BC  1E0E               	goto	u215
+  1098  07BD  2FBF               	bsf	(main@pressed),1
+  1099  07BE  14F4               u215:
+  1100  07BF                     
+  1101                           	line	85
+  1102                           	
+  1103                           l568:	
+  1104  07BF                     ;main.c: 85:         pressed.five = PORTCbits.RC3;
+  1105                           	bcf	(main@pressed),5
+  1106  07BF  12F4               	movlb 0	; select bank0
+  1107  07C0  0140               	btfss	(14),3	;volatile
+  1108  07C1  1D8E               	goto	u225
+  1109  07C2  2FC4               	bsf	(main@pressed),5
+  1110  07C3  16F4               u225:
+  1111  07C4                     
+  1112                           	line	86
+  1113                           	
+  1114                           l570:	
+  1115  07C4                     ;main.c: 86:         pressed.eight = PORTCbits.RC2;
+  1116                           	bcf	0+(main@pressed)+01h,1
+  1117  07C4  10F5               	movlb 0	; select bank0
+  1118  07C5  0140               	btfss	(14),2	;volatile
+  1119  07C6  1D0E               	goto	u235
+  1120  07C7  2FC9               	bsf	0+(main@pressed)+01h,1
+  1121  07C8  14F5               u235:
+  1122  07C9                     
+  1123                           	line	87
+  1124                           	
+  1125                           l572:	
+  1126  07C9                     ;main.c: 87:         pressed.zero = PORTCbits.RC1;
+  1127                           	bcf	0+(main@pressed)+01h,5
+  1128  07C9  12F5               	movlb 0	; select bank0
+  1129  07CA  0140               	btfss	(14),1	;volatile
+  1130  07CB  1C8E               	goto	u245
+  1131  07CC  2FCE               	bsf	0+(main@pressed)+01h,5
+  1132  07CD  16F5               u245:
+  1133  07CE                     
+  1134                           	line	88
+  1135                           	
+  1136                           l574:	
+  1137  07CE                     ;main.c: 88:         LATAbits.LATA4 = 0;
+  1138                           	movlb 0	; select bank0
+  1139  07CE  0140               	bcf	(24),4	;volatile
+  1140  07CF  1218               	line	90
+  1141                           	
+  1142                           l576:	
+  1143  07D0                     ;main.c: 90:         LATAbits.LATA2 = 1;
+  1144                           	bsf	(24),2	;volatile
+  1145  07D0  1518               	line	91
+  1146                           	
+  1147                           l578:	
+  1148  07D1                     ;main.c: 91:         pressed.three = PORTCbits.RC4;
+  1149                           	bcf	(main@pressed),2
+  1150  07D1  1174               	btfss	(14),4	;volatile
+  1151  07D2  1E0E               	goto	u255
+  1152  07D3  2FD5               	bsf	(main@pressed),2
+  1153  07D4  1574               u255:
+  1154  07D5                     
+  1155                           	line	92
+  1156                           	
+  1157                           l580:	
+  1158  07D5                     ;main.c: 92:         pressed.six = PORTCbits.RC3;
+  1159                           	bcf	(main@pressed),6
+  1160  07D5  1374               	movlb 0	; select bank0
+  1161  07D6  0140               	btfss	(14),3	;volatile
+  1162  07D7  1D8E               	goto	u265
+  1163  07D8  2FDA               	bsf	(main@pressed),6
+  1164  07D9  1774               u265:
+  1165  07DA                     
+  1166                           	line	93
+  1167                           	
+  1168                           l582:	
+  1169  07DA                     ;main.c: 93:         pressed.nine = PORTCbits.RC2;
+  1170                           	bcf	0+(main@pressed)+01h,2
+  1171  07DA  1175               	movlb 0	; select bank0
+  1172  07DB  0140               	btfss	(14),2	;volatile
+  1173  07DC  1D0E               	goto	u275
+  1174  07DD  2FDF               	bsf	0+(main@pressed)+01h,2
+  1175  07DE  1575               u275:
+  1176  07DF                     
+  1177                           	line	94
+  1178                           	
+  1179                           l584:	
+  1180  07DF                     ;main.c: 94:         pressed.hash = PORTCbits.RC1;
+  1181                           	bcf	0+(main@pressed)+01h,6
+  1182  07DF  1375               	movlb 0	; select bank0
+  1183  07E0  0140               	btfss	(14),1	;volatile
+  1184  07E1  1C8E               	goto	u285
+  1185  07E2  2FE4               	bsf	0+(main@pressed)+01h,6
+  1186  07E3  1775               u285:
+  1187  07E4                     
+  1188                           	line	95
+  1189                           	
+  1190                           l586:	
+  1191  07E4                     ;main.c: 95:         LATAbits.LATA2 = 0;
+  1192                           	movlb 0	; select bank0
+  1193  07E4  0140               	bcf	(24),2	;volatile
+  1194  07E5  1118               	line	97
+  1195                           	
+  1196                           l588:	
+  1197  07E6                     ;main.c: 97:         LATCbits.LATC0 = 1;
+  1198                           	bsf	(26),0	;volatile
+  1199  07E6  141A               	line	98
+  1200                           	
+  1201                           l590:	
+  1202  07E7                     ;main.c: 98:         pressed.A = PORTCbits.RC4;
+  1203                           	bcf	(main@pressed),3
+  1204  07E7  11F4               	btfss	(14),4	;volatile
+  1205  07E8  1E0E               	goto	u295
+  1206  07E9  2FEB               	bsf	(main@pressed),3
+  1207  07EA  15F4               u295:
+  1208  07EB                     
+  1209                           	line	99
+  1210                           	
+  1211                           l592:	
+  1212  07EB                     ;main.c: 99:         pressed.B = PORTCbits.RC3;
+  1213                           	bcf	(main@pressed),7
+  1214  07EB  13F4               	movlb 0	; select bank0
+  1215  07EC  0140               	btfss	(14),3	;volatile
+  1216  07ED  1D8E               	goto	u305
+  1217  07EE  2FF0               	bsf	(main@pressed),7
+  1218  07EF  17F4               u305:
+  1219  07F0                     
+  1220                           	line	100
+  1221                           	
+  1222                           l594:	
+  1223  07F0                     ;main.c: 100:         pressed.C = PORTCbits.RC2;
+  1224                           	bcf	0+(main@pressed)+01h,3
+  1225  07F0  11F5               	movlb 0	; select bank0
+  1226  07F1  0140               	btfss	(14),2	;volatile
+  1227  07F2  1D0E               	goto	u315
+  1228  07F3  2FF5               	bsf	0+(main@pressed)+01h,3
+  1229  07F4  15F5               u315:
+  1230  07F5                     
+  1231                           	line	101
+  1232                           	
+  1233                           l596:	
+  1234  07F5                     ;main.c: 101:         pressed.D = PORTCbits.RC1;
+  1235                           	bcf	0+(main@pressed)+01h,7
+  1236  07F5  13F5               	movlb 0	; select bank0
+  1237  07F6  0140               	btfss	(14),1	;volatile
+  1238  07F7  1C8E               	goto	u325
+  1239  07F8  2FFA               	bsf	0+(main@pressed)+01h,7
+  1240  07F9  17F5               u325:
+  1241  07FA                     
+  1242                           	line	102
+  1243                           	
+  1244                           l598:	
+  1245  07FA                     ;main.c: 102:         LATCbits.LATC0 = 0;
+  1246                           	movlb 0	; select bank0
+  1247  07FA  0140               	bcf	(26),0	;volatile
+  1248  07FB  101A               	line	104
+  1249                           ;main.c: 104:     }
+  1250                           	goto	l552
+  1251  07FC  2FA4               	
+  1252                           l24:	
+  1253  07FD                     	line	106
+  1254                           	
+  1255                           l25:	
+  1256  07FD                     	global	start
+  1257                           	ljmp	start
+  1258  07FD  2801               	opt stack 0
+  1259                           GLOBAL	__end_of_main
+  1260                           	__end_of_main:
+  1261  07FE                     	signat	_main,8314
+  1262                           global	___latbits
+  1263                           ___latbits	equ	0
+  1264  0000                     	global	btemp
+  1265                           	btemp set 07Eh
+  1266  007E                     
+  1267                           	DABS	1,126,2	;btemp
+  1268                           	global	wtemp0
+  1269                           	wtemp0 set btemp+0
+  1270  007E                     	end
 
 
 Data Sizes:
@@ -471,7 +1348,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14      4       4
+    COMMON           14      6       6
     BANK0            80      0       0
     BANK1            80      0       0
     BANK2            80      0       0
@@ -501,8 +1378,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 4     0      4       0
-                                              0 COMMON     4     0      4
+ (0) _main                                                 6     2      4     192
+                                              0 COMMON     6     2      4
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 0
  ---------------------------------------------------------------------------------
@@ -519,7 +1396,7 @@ CODE                 0      0       0       0        0.0%
 BITCOMMON            E      0       0       1        0.0%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
-COMMON               E      4       4       2       28.6%
+COMMON               E      6       6       2       42.9%
 BITSFR1              0      0       0       2        0.0%
 SFR1                 0      0       0       2        0.0%
 BITSFR2              0      0       0       3        0.0%
@@ -658,12 +1535,32 @@ SFR63                0      0       0      64        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.00 build -1524193055 
-Symbol Table                                                                                   Thu Jul 19 20:49:36 2018
+Symbol Table                                                                                   Fri Jul 20 22:16:59 2018
 
-                      l5 07FD                      l450 07FD                     _main 07FD  
-                   btemp 007E                     start 0001                    ?_main 0070  
-                  wtemp0 007E          __initialization 07FE             __end_of_main 07FE  
-                 ??_main 0074  __end_of__initialization 07FE           __pcstackCOMMON 0070  
-             __pmaintext 07FD     end_of_initialization 07FE      start_initialization 07FE  
-              ___latbits 0000            __size_of_main 0001                 main@argc 0070  
+                     l23 07A4                       l24 07FD                       l25 07FD  
+                    l540 079B                      l550 07A0                      l542 079C  
+                    l534 0795                      l560 07B3                      l552 07A4  
+                    l544 079D                      l536 0798                      l570 07C4  
+                    l562 07B8                      l554 07A5                      l546 079E  
+                    l538 079A                      l580 07D5                      l572 07C9  
+                    l564 07BA                      l556 07A9                      l548 079F  
+                    l590 07E7                      l582 07DA                      l574 07CE  
+                    l566 07BB                      l558 07AE                      l592 07EB  
+                    l584 07DF                      l576 07D0                      l568 07BF  
+                    l594 07F0                      l586 07E4                      l578 07D1  
+                    l596 07F5                      l588 07E6                      l598 07FA  
+                    u205 07B8                      u215 07BF                      u305 07F0  
+                    u225 07C4                      u315 07F5                      u235 07C9  
+                    u325 07FA                      u245 07CE                      u255 07D5  
+                    u175 07A9                      u265 07DA                      u185 07AE  
+                    u275 07DF                      u195 07B3                      u285 07E4  
+                    u295 07EB                     _LATA 0018                     _LATC 001A  
+                   _main 0795                     btemp 007E              main@pressed 0074  
+                   start 0001                    ?_main 0070                    wtemp0 007E  
+        __initialization 07FE             __end_of_main 07FE                   ??_main 0074  
+                 _ANSELA 1F38                   _ANSELC 1F4E  __end_of__initialization 07FE  
+         __pcstackCOMMON 0070               __pmaintext 0795     end_of_initialization 07FE  
+              _PORTCbits 000E                _TRISAbits 0012                _TRISCbits 0014  
+    start_initialization 07FE                ___latbits 0000                 _LATAbits 0018  
+               _LATCbits 001A            __size_of_main 0069                 main@argc 0070  
                main@argv 0072  

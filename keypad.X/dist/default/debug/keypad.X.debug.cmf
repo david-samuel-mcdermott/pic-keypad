@@ -13,9 +13,9 @@
 %PSECTS
 $dist/default/debug\keypad.X.debug.o
 cinit CODE 0 7FE 7FE 2 2
-maintext CODE 0 7D0 7D0 2E 2
-cstackCOMMON COMMON 1 70 70 7 1
-$C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
+maintext CODE 0 795 795 69 2
+cstackCOMMON COMMON 1 70 70 6 1
+$C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
 reset_vec CODE 0 0 0 1 2
 end_init CODE 0 1 1 1 2
 # %UNUSED Section
@@ -30,8 +30,8 @@ RAM 120-16F 1
 BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
-CONST 2-7CF 2
-ENTRY 2-7CF 2
+CONST 2-794 2
+ENTRY 2-794 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -88,7 +88,7 @@ SFR61 1E80-1EEF 1
 SFR62 1F00-1F6F 1
 SFR63 1F80-1FEF 1
 STACK 2000-20EF 1
-CODE 2-7CF 2
+CODE 2-794 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -100,10 +100,10 @@ SFR7 380-3EF 1
 SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-20EF 1
-COMMON 77-7D 1
+COMMON 76-7D 1
 CONFIG 8007-800B 2
-STRCODE 2-7CF 2
-STRING 2-7CF 2
+STRCODE 2-794 2
+STRING 2-794 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -118,17 +118,51 @@ STRING 2-7CF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug\keypad.X.debug.o
-7FE cinit CODE >100:C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.
-7FE cinit CODE >103:C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.
-7FE cinit CODE >109:C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.
-7FE cinit CODE >111:C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.
-7FF cinit CODE >112:C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.
-7D0 maintext CODE >26:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
-7D0 maintext CODE >29:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
-7E1 maintext CODE >30:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
-7E8 maintext CODE >31:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
-7EB maintext CODE >32:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
-7FD maintext CODE >33:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7FE cinit CODE >696:C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.
+7FE cinit CODE >699:C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.
+7FE cinit CODE >705:C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.
+7FE cinit CODE >707:C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.
+7FF cinit CODE >708:C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.
+795 maintext CODE >51:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+795 maintext CODE >54:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+797 maintext CODE >55:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+798 maintext CODE >58:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+79A maintext CODE >59:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+79B maintext CODE >60:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+79C maintext CODE >61:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+79D maintext CODE >64:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+79E maintext CODE >65:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+79F maintext CODE >66:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7A0 maintext CODE >67:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7A1 maintext CODE >70:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7A2 maintext CODE >71:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7A4 maintext CODE >74:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7A4 maintext CODE >76:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7A5 maintext CODE >77:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7A9 maintext CODE >78:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7AE maintext CODE >79:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7B3 maintext CODE >80:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7B8 maintext CODE >81:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7BA maintext CODE >83:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7BB maintext CODE >84:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7BF maintext CODE >85:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7C4 maintext CODE >86:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7C9 maintext CODE >87:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7CE maintext CODE >88:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7D0 maintext CODE >90:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7D1 maintext CODE >91:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7D5 maintext CODE >92:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7DA maintext CODE >93:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7DF maintext CODE >94:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7E4 maintext CODE >95:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7E6 maintext CODE >97:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7E7 maintext CODE >98:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7EB maintext CODE >99:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7F0 maintext CODE >100:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7F5 maintext CODE >101:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7FA maintext CODE >102:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7FC maintext CODE >104:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
+7FD maintext CODE >106:C:\Users\David McDermott\Documents\GitHub\pic-keypad\keypad.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -143,30 +177,36 @@ $dist/default/debug\keypad.X.debug.o
 %SYMTAB
 ___latbits 0 0 ABS 0 - dist/default/debug\keypad.X.debug.o
 __Hspace_0 800 0 ABS 0 - -
-__Hspace_1 77 0 ABS 0 - -
+__Hspace_1 76 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-main@i 75 0 COMMON 1 cstackCOMMON dist/default/debug\keypad.X.debug.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
-_main FA0 0 CODE 0 maintext dist/default/debug\keypad.X.debug.o
+_LATA 18 0 ABS 0 - dist/default/debug\keypad.X.debug.o
+_LATC 1A 0 ABS 0 - dist/default/debug\keypad.X.debug.o
+___sp 0 0 STACK 2 stack C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
+_main F2A 0 CODE 0 maintext dist/default/debug\keypad.X.debug.o
 btemp 7E 0 ABS 0 - dist/default/debug\keypad.X.debug.o
-start 2 0 CODE 0 init C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
+start 2 0 CODE 0 init C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
 __size_of_main 0 0 ABS 0 - dist/default/debug\keypad.X.debug.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
 wtemp0 7E 0 ABS 0 - dist/default/debug\keypad.X.debug.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
+_ANSELA 1F38 0 ABS 0 - dist/default/debug\keypad.X.debug.o
+_ANSELC 1F4E 0 ABS 0 - dist/default/debug\keypad.X.debug.o
+main@pressed 74 0 COMMON 1 cstackCOMMON dist/default/debug\keypad.X.debug.o
 __Lmaintext 0 0 ABS 0 maintext -
 start_initialization FFC 0 CODE 0 cinit dist/default/debug\keypad.X.debug.o
-___int_sp 0 0 STACK 2 stack C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
+_TRISAbits 12 0 ABS 0 - dist/default/debug\keypad.X.debug.o
+_TRISCbits 14 0 ABS 0 - dist/default/debug\keypad.X.debug.o
+___int_sp 0 0 STACK 2 stack C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -359,6 +399,7 @@ __Lsfr61 0 0 ABS 0 sfr61 -
 __Lsfr62 0 0 ABS 0 sfr62 -
 __Lsfr63 0 0 ABS 0 sfr63 -
 __Lstack 0 0 STACK 2 stack -
+_PORTCbits E 0 ABS 0 - dist/default/debug\keypad.X.debug.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 2 0 CODE 0 init -
@@ -389,10 +430,10 @@ __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __S0 800 0 ABS 0 - -
-__S1 77 0 ABS 0 - -
+__S1 76 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __Lintentry 2 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -447,12 +488,14 @@ __Lbank60 0 0 BANK60 1 bank60 -
 __Lbank61 0 0 BANK61 1 bank61 -
 __Lbank62 0 0 BANK62 1 bank62 -
 __Lbank63 0 0 BANK63 1 bank63 -
-__pmaintext FA0 0 CODE 0 maintext dist/default/debug\keypad.X.debug.o
+__pmaintext F2A 0 CODE 0 maintext dist/default/debug\keypad.X.debug.o
 __Lbigram 0 0 ABS 0 bigram -
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 0 config -
-stackhi 20EF 0 ABS 0 - C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
-stacklo 2000 0 ABS 0 - C:\Users\DAVIDM~1\AppData\Local\Temp\sf5s.o
+_LATAbits 18 0 ABS 0 - dist/default/debug\keypad.X.debug.o
+_LATCbits 1A 0 ABS 0 - dist/default/debug\keypad.X.debug.o
+stackhi 20EF 0 ABS 0 - C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
+stacklo 2000 0 ABS 0 - C:\Users\DAVIDM~1\AppData\Local\Temp\sc5c.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -501,6 +544,6 @@ __initialization FFC 0 CODE 0 cinit dist/default/debug\keypad.X.debug.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FE FFC 2 2
-maintext 0 7D0 FA0 2E 2
-cstackCOMMON 1 70 70 7 1
+maintext 0 795 F2A 69 2
+cstackCOMMON 1 70 70 6 1
 reset_vec 0 0 0 2 2
